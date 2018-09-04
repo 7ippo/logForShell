@@ -4,5 +4,6 @@
 
 _BEFORESHELL $@
 _STEP 1 "Copy Unity Resource"
-_FAILURE 
+_SUCCESS
 _AFTERSHELL
+_FAILURE

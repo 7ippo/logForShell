@@ -49,6 +49,7 @@ _AFTERSHELL(){
 _FAILURE(){
 	RESULTFLAG="FAIL"
 	echo ""
+	echo ""
 	echo "****     line `caller` REPORTED FAILURE     ****"
 	echo ""
 	echo ""
@@ -68,14 +69,12 @@ _FAILURE(){
 
 #成功报告函数：在关键步骤结束后判断执行结果，成功则调用该函数
 #一般步骤不用调用该函数输出
+#如：_SUCCESS "Init and check related params"
 
 _SUCCESS(){
 	echo ""
-	echo "****     SUCCESS     ****"
+	echo "****     $1 SUCCESS      ****"
 	echo ""
 }
 
-
-
-
-
+#打包脚本中使用tee命令将日志同时输出到终端
