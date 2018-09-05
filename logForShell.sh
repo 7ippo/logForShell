@@ -6,10 +6,10 @@
 dateStr=`echo $(date +%Y-%m-%d) $(date +[%H:%M:%S])`
 
 #全局执行结果标志位，有一步出错后日志不会继续输出
-RESULTFLAG="SUCC"
+RESULT_FLAG="SUCC"
 
-_SHOWLOG(){
-	if [ "$RESULTFLAG" = "SUCC" ]; then
+function _Show(){
+	if [ "$RESULT_FLAG" = "SUCC" ]; then
 		echo ${dateStr} "$@"
 	fi
 
@@ -17,37 +17,37 @@ _SHOWLOG(){
 
 
 #步骤打印函数：需要传入$1：步骤序号，$2：步骤描述
-#如： _STEP 1 "Copy Unity Resource"
+#如： _Step 1 "Copy Unity Resource"
 
-_STEP(){
-	_SHOWLOG ""
-	_SHOWLOG "==================== STEP $1 : $2 IN $0 ===================="
-	_SHOWLOG ""
+function _Step(){
+	_Show ""
+	_Show "==================== STEP $1 : $2 IN $0 ===================="
+	_Show ""
 }
 
 #进入脚本函数：在关键脚本开始时执行，调用时需要传入执行脚本的所有参数
-#如： _BEFORESHELL $@
+#如： _BeforeShell $@
 
-_BEFORESHELL(){
-	_SHOWLOG ""
-	_SHOWLOG "   +   $0  BEGIN   +"
-	_SHOWLOG "   +   $0 $@   +"
-	_SHOWLOG ""
+function _BeforeShell(){
+	_Show ""
+	_Show "   +   $0  BEGIN   +"
+	_Show "   +   $0 $@   +"
+	_Show ""
 }
 
 #退出脚本函数：在脚本结束时执行
 
-_AFTERSHELL(){
-	_SHOWLOG ""
-	_SHOWLOG "   +   $0  FINISH   +"
-	_SHOWLOG ""
+function _AfterShell(){
+	_Show ""
+	_Show "   +   $0  FINISH   +"
+	_Show ""
 }
 
 #错误报告函数：在某一步结束后判断执行结果，若出错则调用该函数
-#如：_FAILURE $LINENO
+#如：_Failure
 #该函数会改变执行结果标志位，阻止出错后日志继续输出
-_FAILURE(){
-	RESULTFLAG="FAIL"
+function _Failure(){
+	RESULT_FLAG="FAIL"
 	echo ""
 	echo ""
 	echo "****     line `caller` REPORTED FAILURE     ****"
@@ -69,9 +69,9 @@ _FAILURE(){
 
 #成功报告函数：在关键步骤结束后判断执行结果，成功则调用该函数
 #一般步骤不用调用该函数输出
-#如：_SUCCESS "Init and check related params"
+#如：_Success "Init and check related params"
 
-_SUCCESS(){
+function _Success(){
 	echo ""
 	echo "****     $1 SUCCESS      ****"
 	echo ""

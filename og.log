@@ -1,0 +1,21 @@
+2018-09-05 [16:27:31] 
+2018-09-05 [16:27:31]    +   testforlog.sh  BEGIN   +
+2018-09-05 [16:27:31]    +   testforlog.sh    +
+2018-09-05 [16:27:31] 
+2018-09-05 [16:27:31] 
+2018-09-05 [16:27:31] ==================== STEP 1 : Copy Unity Resource IN testforlog.sh ====================
+2018-09-05 [16:27:31] 
+
+****      SUCCESS      ****
+
+2018-09-05 [16:27:31] 
+2018-09-05 [16:27:31]    +   testforlog.sh  FINISH   +
+2018-09-05 [16:27:31] 
+
+
+****     line 9 testforlog.sh REPORTED FAILURE     ****
+
+
+    CALLER LIST    
+ - line 9 main testforlog.sh
+
