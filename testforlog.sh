@@ -2,12 +2,12 @@
 
 . ./logForShell.sh
 
-_BeforeShell $@
-_Step 1 "Copy Unity Resource"
-_Success "Build Dynamic Framework Project"
-_AfterShell
+BeforeShell $@
+Step 1 "Copy Unity Resource"
+ReportSuccess "Build Dynamic Framework Project"
+AfterShell
 function a(){
-    _Failure
+    ReportFailure
 }
 function b(){
     a
