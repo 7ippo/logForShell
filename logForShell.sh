@@ -1,7 +1,5 @@
 #!/bin/bash
 
-dateStr=`echo $(date +%Y-%m-%d) $(date +[%H:%M:%S])`
-
 #全局执行结果标志位，有一步出错后日志不会继续输出
 RESULT_FLAG="SUCC"
 
@@ -9,8 +7,9 @@ RESULT_FLAG="SUCC"
 #正常log前加时间戳，这样如svn cp等命令打印的内容没有时间戳
 #因此区分了出来
 function Show(){
+	dateStr=`echo $(date +%Y-%m-%d) $(date +[%H:%M:%S])`
 	if [ "$RESULT_FLAG" = "SUCC" ]; then
-		echo ${dateStr} "$@"
+		echo "${dateStr} $@"
 	fi
 
 }
