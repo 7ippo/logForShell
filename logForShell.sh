@@ -43,7 +43,7 @@ function BeforeShell(){
 
 function AfterShell(){
 	Show ""
-	Show "   +   $0  FINISH   +"
+	Show "   +   $BASH_SOURCE  FINISH   +"
 	Show ""
 }
 
