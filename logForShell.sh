@@ -23,7 +23,7 @@ function BlankLine(){
 
 function Step(){
 	Show ""
-	Show "==================== STEP $1 : $2 IN $BASH_SOURCE ===================="
+	Show "==================== $BASH_SOURCE  STEP $1 : $2 ===================="
 	Show ""
 }
 
