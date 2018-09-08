@@ -24,7 +24,7 @@ function BlankLine(){
 
 function Step(){
 	Show ""
-	Show "==================== STEP $1 : $2 IN $0 ===================="
+	Show "==================== STEP $1 : $2 IN $BASH_SOURCE ===================="
 	Show ""
 }
 
@@ -33,8 +33,8 @@ function Step(){
 
 function BeforeShell(){
 	Show ""
-	Show "   +   $0  BEGIN   +"
-	Show "   +   $0 $@   +"
+	Show "   +   $BASH_SOURCE  BEGIN   +"
+	Show "   +   $BASH_SOURCE $@   +"
 	Show ""
 }
 
