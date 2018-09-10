@@ -14,6 +14,7 @@ function Show(){
 
 }
 
+#空行打印函数，请在非关键日志如svn,cp,wget等命令前打印一个空行
 function BlankLine(){
 	echo ""
 }
