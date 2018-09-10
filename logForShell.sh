@@ -23,8 +23,9 @@ function BlankLine(){
 #如： Step 1 "Copy Unity Resource"
 
 function Step(){
+	sourceFile=`caller`
 	Show ""
-	Show "==================== $BASH_SOURCE  STEP $1 : $2 ===================="
+	Show "==================== ${sourceFile##*/}  STEP $1 : $2 ===================="
 	Show ""
 }
 
@@ -32,9 +33,10 @@ function Step(){
 #如： BeforeShell $@
 
 function BeforeShell(){
+	sourceFile=`caller`
 	Show ""
-	Show "   +   $BASH_SOURCE  BEGIN   +"
-	Show "   +   $BASH_SOURCE $@   +"
+	Show "   +   ${sourceFile##*/}  BEGIN   +"
+	Show "   +   ${sourceFile##*/} $@   +"
 	Show ""
 }
 
@@ -42,8 +44,9 @@ function BeforeShell(){
 #如： AfterShell
 
 function AfterShell(){
+	sourceFile=`caller`
 	Show ""
-	Show "   +   $BASH_SOURCE  FINISH   +"
+	Show "   +   ${sourceFile##*/}  FINISH   +"
 	Show ""
 }
 
