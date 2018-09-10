@@ -47,7 +47,6 @@ function AfterShell(){
 	sourceFile=`caller`
 	Show ""
 	Show "   +   ${sourceFile##*/}  FINISH   +"
-	Show ""
 }
 
 #错误报告函数：在某一步结束后判断执行结果，若出错则调用该函数
