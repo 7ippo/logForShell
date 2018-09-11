@@ -1,11 +1,11 @@
 #!/bin/bash
 
 #全局执行结果标志位，有一步出错后日志不会继续输出
-RESULT_FLAG="SUCC"
+GLOBAL_RESULT_FLAG="SUCC"
 
 #是否加入标签TAG标志位，默认为不加入
 #需要加入TAG时，调用该脚本时传入TAG参数
-#. ./logForShell.sh [Shell]
+#如： . ./logForShell.sh [Shell]
 if [ "$1" != "" ];then
 	TAG_FOR_SHELL=$1
 else
@@ -16,7 +16,7 @@ fi
 #打印日志前加入[Shell]标签，方便过滤检索
 function Show(){
 	dateStr=`echo $(date +%Y-%m-%d) $(date +[%H:%M:%S])`
-	if [ "$RESULT_FLAG" = "SUCC" ]; then
+	if [ "$GLOBAL_RESULT_FLAG" = "SUCC" ]; then
 		echo "${dateStr} $TAG_FOR_SHELL $@"
 	fi
 
@@ -61,7 +61,7 @@ function AfterShell(){
 #如： ReportFailure
 #该函数会改变执行结果标志位，阻止出错后日志继续输出
 function ReportFailure(){
-	RESULT_FLAG="FAIL"
+	GLOBAL_RESULT_FLAG="FAIL"
 	echo ""
 	echo ""
 	echo "****     line `caller` REPORTED FAILURE     ****"
