@@ -3,13 +3,21 @@
 #全局执行结果标志位，有一步出错后日志不会继续输出
 RESULT_FLAG="SUCC"
 
+#是否加入标签TAG标志位，默认为不加入
+#需要加入TAG时，调用该脚本时传入TAG参数
+#. ./logForShell.sh [Shell]
+if [ "$1" != "" ];then
+	TAG_FOR_SHELL=$1
+else
+	TAG_FOR_SHELL=""
+fi
 #如何区分出一些非关键log呢
 #正常log前加时间戳，这样如svn cp等命令打印的内容没有时间戳
-#因此区分了出来
+#打印日志前加入[Shell]标签，方便过滤检索
 function Show(){
 	dateStr=`echo $(date +%Y-%m-%d) $(date +[%H:%M:%S])`
 	if [ "$RESULT_FLAG" = "SUCC" ]; then
-		echo "${dateStr} $@"
+		echo "${dateStr} $TAG_FOR_SHELL $@"
 	fi
 
 }
