@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #全局执行结果标志位，有一步出错后日志不会继续输出
-#考虑到子Shell与父Shell进程间通信，使用文件作为标志位进行信息传递和判断
-export GLOBAL_FAIL_FLAG="$(pwd)/globalFailFlag.tag"
+#考虑到子Shell与父Shell进程间通信，使用与该文件同目录下的tag文件作为标志位进行信息传递和判断
+export GLOBAL_FAIL_FLAG="$(cd $(dirname ${BASH_SOURCE[0]}); pwd )/globalFailFlag.tag"
 
 #是否加入标签TAG标志位，默认为default
 #如： . ./logForShell.sh default
@@ -23,7 +23,6 @@ function Show(){
 	if [ ! -f ${GLOBAL_FAIL_FLAG} ]; then
 		echo "${dateStr} ${TAG_FOR_SHELL} $@"
 	fi
-
 }
 
 #空行打印函数：请在非关键日志如svn,cp,wget等命令前打印一个空行
