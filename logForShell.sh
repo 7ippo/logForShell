@@ -1,4 +1,6 @@
 #!/bin/bash
+# * Author: 子博
+# * Date: 2018
 
 # 全局执行结果标志位，有一步出错后日志不会继续输出
 # 考虑到子Shell与父Shell进程间通信，使用与该文件同目录下的tag文件作为标志位进行信息传递和判断
@@ -33,7 +35,7 @@ function BlankLine(){
 
 # 纯净打印函数：无时间戳无标签无格式
 
-function NoFormatShow(){
+function CleanShow(){
 	echo "$@"
 }
 
@@ -104,7 +106,7 @@ function ReportSuccess(){
 
 # 清理标志位函数：在加载logForShell函数后，务必在主入口脚本所有语句执行前调用
 
-function CleanFlagBeforeStart(){
+function CleanFailFlagBeforeStart(){
 	if [ -f ${GLOBAL_FAIL_FLAG} ]; then
 		rm -f ${GLOBAL_FAIL_FLAG}
 	fi
