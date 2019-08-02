@@ -9,7 +9,7 @@ Used for Shell scripts. Focus on :
 
 ## Usage & Examples
 
-import logForShell in your first shell script:
+**Import** logForShell in your first shell script:
 
 ```language-shell
 source ./logForShell.sh "default"
