@@ -3,15 +3,15 @@
 # * Date: 2018
 
 # 全局执行结果标志位，有一步出错后日志不会继续输出
-# 考虑到子Shell与父Shell进程间通信，使用与该文件同目录下的tag文件作为标志位进行信息传递和判断
+# 使用与该文件同目录下的tag文件作为标志位进行信息传递和判断
 export GLOBAL_FAIL_FLAG="$(cd $(dirname ${BASH_SOURCE[0]}); pwd )/globalFailFlag.tag"
 
-# 是否加入标签TAG标志位，默认为default
+# 是否加入标签TAG标志位，默认空请传入default，否则${1}会读取到调用脚本的执行参数
 # 如： . ./logForShell.sh default
 # 需要加入TAG时，调用该脚本时传入TAG参数
 # 如： . ./logForShell.sh [Shell]
 if [ "${1}" != "default" ];then
-	TAG_FOR_SHELL=${1}
+	TAG_FOR_SHELL="${1} "
 else
 	TAG_FOR_SHELL=""
 fi
@@ -23,7 +23,7 @@ fi
 function Show(){
 	dateStr=`echo $(date +%Y-%m-%d) $(date +[%H:%M:%S])`
 	if [ ! -f ${GLOBAL_FAIL_FLAG} ]; then
-		echo "${dateStr} ${TAG_FOR_SHELL} $@"
+		echo "${dateStr} ${TAG_FOR_SHELL}$@"
 	fi
 }
 
