@@ -86,4 +86,4 @@ ReportFailure
 
 ```
 
-<font size="4">*contact author please email me 子博 : tingsven@163.com*</font>
+<font size="4">*You can find something about Shell in my personal <a href="https://tingsven.com">blog</a>. Contact author please email me 子博 : tingsven@163.com*</font>
