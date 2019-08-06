@@ -12,7 +12,7 @@ Used for Shell scripts. Focus on :
 **Import** logForShell in your first shell script:
 
 ```language-shell
-source ./logForShell.sh "default"
+source ./logForShell.sh
 Show "Hello World"
 
 2018-09-11 [10:07:21] Hello World
