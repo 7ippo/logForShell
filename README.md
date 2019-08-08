@@ -3,7 +3,7 @@
 Used for Shell scripts. Focus on :
 
 1. Fast problems locating.
-2. Using "Caller" to generate calling stack of Shell source code.
+2. Using "Caller" to generate call stacks of Shell source code.
 3. Format of logs.
 4. Clearly understand scripts step by step.
 
