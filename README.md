@@ -53,7 +53,7 @@ AfterShell
 2018-09-05 [17:52:21]    +   test.sh  FINISH   +
 ```
 
-**When** running a new step, you can call `Step` function and input a *step number* and *step name*. This will print format logs for steps
+**When** running a new step, you can call `Step` function and input a *step number* and *step name*. This will print format logs for steps.
 
 ```language-shell
 Step 1 "Copy Unity Resource"
@@ -71,7 +71,7 @@ ReportSuccess "Build Dynamic Framework Project"
 ****     Build Dynamic Framework Project SUCCESS      ****
 ```
 
-**Also** when you find a failure or wrong conditions, you should call `ReportFailure`. This will automatically print the calling stack for you to locate the problem source code easily. And this will generate failure flag to stop the incoming `Show` method's output. In another word, logs will end here.
+**Also** when you find a failure or wrong conditions, you should call `ReportFailure`. This will automatically print the calling stack logs to locate the problem in source code easily. And this will generate failure flag to stop the incoming `Show` method's output. In another word, logs will end here.
 
 ```language-shell
 ReportFailure
