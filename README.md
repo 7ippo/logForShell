@@ -5,7 +5,7 @@ Used for Shell scripts. Focus on :
 1. Fast problems location.
 2. Using "Caller" to generate call stacks of Shell source code.
 3. Format of logs.
-4. Clearly understanding what scripts are doing from logs.
+4. Clearly understanding what the scripts are doing by logs.
 
 ## Usage & Examples
 
